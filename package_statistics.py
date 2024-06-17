@@ -17,6 +17,10 @@ if not len(sys.argv) == 2:
     log_usage()
     sys.exit(1)
 
+# creates the download directory if it does not exist
+if not os.path.exists(download_dir):
+    os.makedirs(download_dir)
+
 # preparing the variables
 architecture = sys.argv[1]
 content_indices_filename = content_indices_filename.format(architecture)
