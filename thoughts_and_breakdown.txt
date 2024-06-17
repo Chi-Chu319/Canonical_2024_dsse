@@ -4,9 +4,9 @@ Before writing the code, I first checked the contents indices link to see the st
 
 Fist, to download the contents indices, the mirror url and the download folder are needed. The program can get them through environment variables. If they are not provided, the program will use the default values.
 
-To make my code clear and readable, I organized the downloading, unzipping, and parsing logic into functions. While package_statistics.py can remain simple. It is only responsible for preparing the variables and calling the functions from the utils packages.
+To make my code clear and readable, I organized the downloading, reading, and parsing logic into functions. While package_statistics.py can remain simple. It is only responsible for preparing the variables and calling the functions from the utils packages.
 
-The package_utils.py is the place for all the package utilities. For downloading, function provided by python-debian can be used. For unzipping, open(local, "rb") is used to read the file.
+The package_utils.py is the place for all the package utilities. For downloading, function provided by python-debian can be used. For reading, the standard open() function is used.
 
 With the content read, it can be processed line by line. To skip the free form text, I used regex. The rest of the lines are split by space and the package name is extracted as the last element. This is because some path have spaces in them.
 

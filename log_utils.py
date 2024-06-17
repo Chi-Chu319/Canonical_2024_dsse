@@ -7,9 +7,9 @@ def log_downloading_file(filename):
     print("Downloading file: {}".format(filename))
 
 
-def log_unzipping_file(filename):
-    """Log that a file is being unzipped."""
-    print("Unzipping file: {}".format(filename))
+def log_reading_file(filename):
+    """Log that a file is being read."""
+    print("Reading file: {}".format(filename))
 
 
 def log_file_exists(filename):

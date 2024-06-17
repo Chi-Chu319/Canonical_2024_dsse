@@ -1,7 +1,7 @@
 from debian.debian_support import download_file
 import os
 from typing import List
-from log_utils import log_file_exists, log_downloading_file, log_unzipping_file
+from log_utils import log_file_exists, log_downloading_file, log_reading_file
 import re
 
 
@@ -13,6 +13,7 @@ def download_contents_indices(remote, local) -> List[str]:
         local (str): The local path to save the file.
     """
 
+    # if the file exists, no need to download
     if os.path.exists(local):
         log_file_exists(local)
         with open(local, "rb") as f:
@@ -25,8 +26,7 @@ def download_contents_indices(remote, local) -> List[str]:
     # downloads the file
     download_file(remote, local)
 
-    log_unzipping_file(local)
-    # unzip the file
+    log_reading_file(local)
     with open(local, "rb") as f:
         contents = f.read()
         contents = contents.decode("utf-8")
