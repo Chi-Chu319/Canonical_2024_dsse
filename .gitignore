@@ -163,7 +163,7 @@ cython_debug/
 
 # Download
 # Ignore everything in the folder
-download/*
+downloads/*
 
 
 .idea/

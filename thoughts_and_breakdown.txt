@@ -1,0 +1,15 @@
+This work took me 2.5-3 hours to complete.
+
+Before writing the code, I first checked the contents indices link to see the structure of the data. I broke down the problem into smaller parts in my head.
+
+Fist, to download the contents indices, the mirror url and the download folder are needed. The program can get them through environment variables. If they are not provided, the program will use the default values.
+
+To make my code clear and readable, I organized the downloading, unzipping, and parsing logic into functions. While package_statistics.py can remain simple. It is only responsible for preparing the variables and calling the functions from the utils packages.
+
+The package_utils.py is the place for all the package utilities. For downloading, function provided by python-debian can be used. For unzipping, open(local, "rb") is used to read the file.
+
+With the content read, it can be processed line by line. To skip the free form text, I used regex. The rest of the lines are split by space and the package name is extracted as the last element. This is because some path have spaces in them.
+
+Hashmap is the most appropriate data structure to store the package names and their counts. I used to store the package names and their counts. The package names are the keys and their counts are the values. This makes the processing of each line takes constant time.
+
+When the package statistics is ready, it can be print out in the desired format.

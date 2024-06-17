@@ -48,7 +48,7 @@ This Python 3 command line tool downloads and analyzes Debian package Contents f
 
     ```bash
     export DEBIAN_MIRROR_URL=http://ftp.uk.debian.org/debian/dists/stable/main/
-    export DOWNLOAD_DIR=./download/
+    export DOWNLOAD_DIR=./downloads/
     ```
 
 2. **Run the program:**
