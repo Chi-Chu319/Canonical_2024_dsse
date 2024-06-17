@@ -7,11 +7,6 @@ def log_downloading_file(filename):
     print("Downloading file: {}".format(filename))
 
 
-def log_reading_file(filename):
-    """Log that a file is being read."""
-    print("Reading file: {}".format(filename))
-
-
 def log_file_exists(filename):
     """Log that a file already exists."""
     print("File exists: {}".format(filename))

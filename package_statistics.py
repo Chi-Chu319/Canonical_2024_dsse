@@ -26,11 +26,11 @@ local = download_dir + content_indices_filename
 
 # downloads the file and get the package statistics
 try:
-    file_content = download_contents_indices(remote, local + ".gz")
+    lines = download_contents_indices(remote, local)
 except Exception as e:
     log_contents_indices_not_found(architecture)
     sys.exit(1)
 
-package_statistics = get_package_statistics(file_content)
+package_statistics = get_package_statistics(lines)
 log_package_statistics(package_statistics)
 

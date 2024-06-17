@@ -6,10 +6,12 @@ Fist, to download the contents indices, the mirror url and the download folder a
 
 To make my code clear and readable, I organized the downloading, reading, and parsing logic into functions. While package_statistics.py can remain simple. It is only responsible for preparing the variables and calling the functions from the utils packages.
 
-The package_utils.py is the place for all the package utilities. For downloading, function provided by python-debian can be used. For reading, the standard open() function is used.
+The package_utils.py is the place for all the package utilities. I used download_file provided by python-debian to download and decompress the gzip file. It handles debian gzip file perfectly that I don't need to decompress myself.
 
-With the content read, it can be processed line by line. To skip the free form text, I used regex. The rest of the lines are split by space and the package name is extracted as the last element. This is because some path have spaces in them.
+With the content read, it can be processed line by line. To skip the free form text, I used regex. The rest of the lines are split by space and the package name is extracted as the last element. This is because some path contain space and "package names cannot include white space characters" (wiki.debian.org).
 
-Hashmap is the most appropriate data structure to store the package names and their counts. I used to store the package names and their counts. The package names are the keys and their counts are the values. This makes the processing of each line takes constant time.
+Hashmap is the most appropriate data structure to store the package names and their counts. The package names are the keys and their counts are the values. This makes the processing of each line takes constant time.
 
 When the package statistics is ready, it can be print out in the desired format.
+
+P.S. To add parallelism to the program, concurrent-hashmap like data structure can be used to replace the hashmap. So that there is only one thread writing to one package name. This avoids any data race issue.
